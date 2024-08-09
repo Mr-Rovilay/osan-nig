@@ -5,7 +5,7 @@ const Logo = () => {
   return (
     <>
     <Link href={"/"}>
-    <p className="text-xl" >Osan Ent</p>
+    <p className="text-x" >Osan Ent</p>
     
     </Link>
     
