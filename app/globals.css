@@ -1,32 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400..700;1,400..700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');/* styles/globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400..700;1,400..700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
 
+/* Tailwind CSS base, components, and utilities */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Base layer styles */
 @layer base {
   html {
-    @apply scroll-smooth;
-    @apply overflow-x-hidden;
+    @apply scroll-smooth overflow-x-hidden;
   }
 
   * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: "Gelasio", "Poppins";
+    font-family: "Gelasio", "Instrument Sans", sans-serif;
   }
 
   body {
     color: #333;
-    line-height: 1.6;
-    /* margin: 0 auto;
-    padding: 1rem; */
+    line-height: 1.6; /* Added a subtle background color for contrast */
   }
 
   a {
     text-decoration: none;
     transition: color 0.3s ease;
+
+    &:hover {
+      color: #2a81d7; /* Example hover color, adjust as needed */
+    }
   }
 
   h1,
@@ -35,8 +38,9 @@
   h4,
   h5,
   h6 {
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 1rem;
+    color: #222; /* Slightly darker color for headings */
   }
   
   .container {
@@ -46,5 +50,3 @@
     padding: 1rem;
   }
 }
-
-

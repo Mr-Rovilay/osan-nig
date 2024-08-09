@@ -8,19 +8,19 @@ import { AlignJustify, X } from "lucide-react";
 import DropDownMenu from "./drop-down-menu";
 
 const ActionButtons = () => {
-    const [isDropDownOpen, setIsDropDownOpen] = React.useState(false);
-    const toggleDropdown = () => setIsDropDownOpen(!isDropDownOpen);
-    const closeDropdown = () => setIsDropDownOpen(false);
+    const [isDropDownOpen, setIsDropdownOpen] = React.useState(false);
+    const toggleDropdown = () => setIsDropdownOpen(!isDropDownOpen);
+    const closeDropdown = () => setIsDropdownOpen(false);
 
     return (
         <div className="pr-2">
             <div className="items-center justify-center flex">
-                <div className="flex xl:space-x-4 items-center">
+                <div className="flex gap-2 items-center">
                     <Link href="/contact-sales" className="hidden lg:flex items-center">
                         <div>Contact us</div>
                     </Link>
                     <div className="font-thin lg:flex items-center hidden">|</div>
-                    <div className="flex lg:space-x-4 items-center pr-4">
+                    <div className="flex lg:space-x-4 items-center">
                         <Button
                             icon={<IoIosLogIn />}
                             text="Login"
@@ -30,9 +30,10 @@ const ActionButtons = () => {
                     </div>
                     {isDropDownOpen ? (
                         <div
-                            className="rounded-full xl:hidden"
+                            className="rounded-full xl:hidden lg:hidden"
                             onClick={toggleDropdown}
-                          
+                            aria-expanded="true"
+                            role="button"
                         >
                             <X className="h-5 w-5 items-center justify-center" />
                         </div>
@@ -46,7 +47,9 @@ const ActionButtons = () => {
                             <AlignJustify className="h-5 w-5 items-center justify-center" />
                         </div>
                     )}
+                    <div className="">
                     {isDropDownOpen && <DropDownMenu onClose={closeDropdown} />}
+                    </div>
                 </div>
             </div>
         </div>
