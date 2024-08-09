@@ -43,6 +43,16 @@ const WhyChooseUs = () => {
             Our customers love our products, and we strive to keep it that way with excellent service.
           </p>
         </motion.div>
+        <motion.div
+          className="p-8 border border-gray-200 dark:border-gray-600 rounded-lg shadow-lg cursor-pointer"
+          whileHover={{ scale: 1.05 }}
+        >
+          <h3 className="text-2xl font-semibold text-custom-blue mb-4">Fast Delivery</h3>
+          <p className="text-gray-600 dark:text-gray-400">
+            Our customers love our products, and we strive to keep it that way with excellent service and very fast delivery.
+          </p>
+        </motion.div>
+
       </div>
     </div>
   );
