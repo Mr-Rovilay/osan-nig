@@ -41,7 +41,7 @@ const DropdownMenu: React.FC<DropDownMenuProps> = ({ onClose }) => {
   };
 
   return (
-    <div className="mt-9 w-screen h-screen bg-white  px-4 items-center justify-center absolute  right-0 xl:hidden lg:hidden">
+    <div className="mt-3 w-screen h-screen bg-white  px-4 items-center justify-center absolute  right-0 xl:hidden lg:hidden">
       <Accordion
        defaultValue="item-1"
         className="
@@ -51,7 +51,7 @@ const DropdownMenu: React.FC<DropDownMenuProps> = ({ onClose }) => {
         collapsible
       >
         <AccordionItem className="mt-6 border-b" value="item-1">
-          <AccordionTrigger className="">Use Cases</AccordionTrigger>
+          <AccordionTrigger className="">Products</AccordionTrigger>
           <AccordionContent
            defaultValue="item-1"
           
@@ -135,172 +135,9 @@ const DropdownMenu: React.FC<DropDownMenuProps> = ({ onClose }) => {
             </Link>
           </AccordionContent>
         </AccordionItem>
-        <AccordionItem className=" border-b" value="item-2">
-          <AccordionTrigger>For Business</AccordionTrigger>
-          <AccordionContent className="space-y-2">
-            <Link
-              href={"/team-alignment"}
-              className="flex"
-              onClick={handleLinkClick}
-            >
-              <div>
-                <UserPlus className="h-6 w-6 mr-4 text-orange-400" />
-              </div>
-              <div>Team alignment</div>
-            </Link>
-            <Link
-              href={"/sales"}
-              className="flex"
-              onClick={handleLinkClick}
-            >
-              <div>
-                <DollarSign className="h-6 w-6 mr-4 text-green-400" />
-              </div>
-
-              <div>Sales</div>
-            </Link>
-            <Link
-              href={"/engineering"}
-              className="flex"
-              onClick={handleLinkClick}
-            >
-              <div>
-                <Code className="h-6 w-6 mr-4 text-indigo-400" />
-              </div>
-
-              <div>Engineering</div>
-            </Link>
-            <Link
-              href={"/design"}
-              className="flex"
-              onClick={handleLinkClick}
-            >
-              <div>
-                <PaintBucket className="h-6 w-6 mr-4 text-blue-400" />
-              </div>
-
-              <div>Design</div>
-            </Link>
-            <Link
-              href={"/marketing"}
-              className="flex "
-              onClick={handleLinkClick}
-            >
-              <div>
-                <BarChart className="h-6 w-6 mr-4 text-rose-400" />
-              </div>
-
-              <div>Marketing</div>
-            </Link>
-            <Link
-              href={"/product-management"}
-              className="flex"
-              onClick={handleLinkClick}
-            >
-              <div>
-                <Settings className="h-6 w-6 mr-4 text-grey-400" />
-              </div>
-
-              <div>Product Management</div>
-            </Link>
-            <Link
-              href={"/support"}
-              className="flex "
-              onClick={handleLinkClick}
-            >
-              <div>
-                <Headphones className="h-6 w-6 mr-4 text-amber-400" />
-              </div>
-
-              <div>Support</div>
-            </Link>
-          </AccordionContent>
-        </AccordionItem>
 
         <AccordionItem className=" border-b" value="item-3">
-          <AccordionTrigger>Resources</AccordionTrigger>
-          <AccordionContent className="space-y-2">
-            <Link
-              href={"/team-alignment"}
-              className="flex"
-              onClick={handleLinkClick}
-            >
-              <div>
-                <UserPlus className="h-6 w-6 mr-4 text-orange-400" />
-              </div>
-              <div>Team alignment</div>
-            </Link>
-            <Link
-              href={"/sales"}
-              className="flex"
-              onClick={handleLinkClick}
-            >
-              <div>
-                <DollarSign className="h-6 w-6 mr-4 text-green-400" />
-              </div>
-
-              <div>Sales</div>
-            </Link>
-            <Link
-              href={"/engineering"}
-              className="flex"
-              onClick={handleLinkClick}
-            >
-              <div>
-                <Code className="h-6 w-6 mr-4 text-indigo-400" />
-              </div>
-
-              <div>Engineering</div>
-            </Link>
-            <Link
-              href={"/design"}
-              className="flex"
-              onClick={handleLinkClick}
-            >
-              <div>
-                <PaintBucket className="h-6 w-6 mr-4 text-blue-400" />
-              </div>
-
-              <div>Design</div>
-            </Link>
-            <Link
-              href={"/marketing"}
-              className="flex "
-              onClick={handleLinkClick}
-            >
-              <div>
-                <BarChart className="h-6 w-6 mr-4 text-rose-400" />
-              </div>
-
-              <div>Marketing</div>
-            </Link>
-            <Link
-              href={"/product-management"}
-              className="flex"
-              onClick={handleLinkClick}
-            >
-              <div>
-                <Settings className="h-6 w-6 mr-4 text-grey-400" />
-              </div>
-
-              <div>Product Management</div>
-            </Link>
-            <Link
-              href={"/support"}
-              className="flex "
-              onClick={handleLinkClick}
-            >
-              <div>
-                <Headphones className="h-6 w-6 mr-4 text-amber-400" />
-              </div>
-
-              <div>Support</div>
-            </Link>
-          </AccordionContent>
-        </AccordionItem>
-
-        <AccordionItem className=" border-b" value="item-4">
-          <AccordionTrigger>Company</AccordionTrigger>
+          <AccordionTrigger>Osan Water</AccordionTrigger>
           <AccordionContent className="space-y-2">
             <Link
               href={"/team-alignment"}
@@ -414,14 +251,33 @@ const DropdownMenu: React.FC<DropDownMenuProps> = ({ onClose }) => {
       
             "
         >
-       Request a demo
+    Vacancies
+        
+        </Link>
+
+        <Link
+          href={"/contact"}
+          className="
+            flex
+            flex-1
+            items-center 
+            justify-between
+            border-b
+          
+         
+            py-4
+          
+      
+            "
+        >
+    Contact us
         
         </Link>
       </Accordion>
 
       <div className="py-7">
         <div className="flex flex-col px-4">
-          <Link href={"/sign-in"}>
+          <Link href={"/login"}>
             <Button
               icon={<IoIosLogIn />}
             text="Login"

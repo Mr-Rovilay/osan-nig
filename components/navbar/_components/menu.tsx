@@ -54,84 +54,74 @@ const components: { title: string; href: string; description: string }[] = [
   },
 ]
 
+const component: { title: string; href: string; description: string }[] = [
+  {
+    title: "Brick blocks",
+    href: "/docs/primitives/alert-dialog",
+    description:
+      "A modal dialog that interrupts the user with important content and expects a response.",
+  },
+  {
+    title: "Interlocks",
+    href: "/docs/primitives/hover-card",
+    description:
+      "For sighted users to preview content available behind a link.",
+  },
+  {
+    title: "Sands",
+    href: "/docs/primitives/progress",
+    description:
+      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+  },
+  {
+    title: "Cement",
+    href: "/docs/primitives/scroll-area",
+    description: "Visually or semantically separates content.",
+  },
+  {
+    title: "Real estate/land developer",
+    href: "/docs/primitives/tabs",
+    description:
+      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+  },
+  {
+    title: "Housing Materials",
+    href: "/docs/primitives/tooltip",
+    description:
+      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+  },
+  {
+    title: "Solar Installation",
+    href: "/docs/primitives/tooltip",
+    description:
+      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+  },
+]
+
 export function Menu() {
   return (
     <NavigationMenu className="hidden lg:flex">
       <NavigationMenuList>
-        <NavigationMenuItem>
+      <NavigationMenuItem>
           <NavigationMenuTrigger>Products</NavigationMenuTrigger>
           <NavigationMenuContent>
-          <div className="flex">
-            <ul className="grid p-2 md:w-[400px] lg:w-[250px] hover:cursor-pointer border-r">
-                <div className="flex items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
-                <PiBookOpenTextLight className="text-6xl mr-2 text-custom-blue"/>
-                <div className="">
-                    <a href="">Blocks</a>
-                    <p className="text-gray-400 text-sm font-light">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea porro nesciunt provident reiciendis in qu
-                    </p>
-                </div>
-                
-                </div>
-                <div className="flex items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
-                <PiBookOpenTextLight className="text-6xl mr-2 text-custom-blue"/>
-                <div className="">
-                    <a href="">Cements</a>
-                    <p className="text-gray-400 text-sm font-light">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea porro nesciunt provident reiciendis in qu
-                    </p>
-                </div>
-                
-                </div>
-                <div className="flex items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
-                <PiBookOpenTextLight className="text-6xl mr-2 text-custom-blue"/>
-                <div className="">
-                    <a href="">Inter Locks</a>
-                    <p className="text-gray-400 text-sm font-light">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea porro nesciunt provident reiciendis in qu
-                    </p>
-                </div>
-                
-                </div>
+            <ul className="grid w-[400px] bg-white gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+              {component.map((component) => (
+                <ListItem className="hover:bg-gray-400/10"
+                  key={component.title}
+                  title={component.title}
+                  href={component.href}
+                >
+                  {component.description}
+                </ListItem>
+              ))}
             </ul>
-            <div className="">
-            <ul className="grid p-2 md:w-[400px] lg:w-[250px] hover:cursor-pointer border-r">
-                <div className="flex items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
-                <div className="">
-                    <a href="">Blocks</a>
-                    <p className="text-gray-400 text-sm font-light">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea porro nesciunt provident reiciendis in qu
-                    </p>
-                </div>
-                
-                </div>
-                <div className="flex items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
-                <div className="">
-                    <a href="">Cements</a>
-                    <p className="text-gray-400 text-sm font-light">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea porro nesciunt provident reiciendis in qu
-                    </p>
-                </div>
-                
-                </div>
-                <div className="flex items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
-                <div className="">
-                    <a href="">Inter Locks</a>
-                    <p className="text-gray-400 text-sm font-light">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea porro nesciunt provident reiciendis in qu
-                    </p>
-                </div>
-                
-                </div>
-            </ul>
-            </div>
-          </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuTrigger>Osan water</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+            <ul className="grid w-[400px] bg-white gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
               {components.map((component) => (
                 <ListItem className="hover:bg-gray-400/10"
                   key={component.title}
@@ -154,7 +144,7 @@ export function Menu() {
         <NavigationMenuItem>
           <Link href="/vacancy" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-         Vacancy  
+         Vacancies  
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>

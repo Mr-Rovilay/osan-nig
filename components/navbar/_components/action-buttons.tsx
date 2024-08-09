@@ -13,7 +13,7 @@ const ActionButtons = () => {
     const closeDropdown = () => setIsDropdownOpen(false);
 
     return (
-        <div className="pr-2">
+        <div className="">
             <div className="items-center justify-center flex">
                 <div className="flex gap-2 items-center">
                     <Link href="/contact-sales" className="hidden lg:flex items-center">
@@ -21,12 +21,14 @@ const ActionButtons = () => {
                     </Link>
                     <div className="font-thin lg:flex items-center hidden">|</div>
                     <div className="flex lg:space-x-4 items-center">
+                        <Link href={"/login"}>
                         <Button
                             icon={<IoIosLogIn />}
                             text="Login"
                             variant="secondary"
                             className="hidden lg:flex items-center"
                         />
+                        </Link>
                     </div>
                     {isDropDownOpen ? (
                         <div
