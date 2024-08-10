@@ -32,7 +32,7 @@ const TestimonialsSection = () => {
     },
   ];
 
-  const fastDuration = 35;
+  const fastDuration = 45;
   const slowDuration = 75;
   const [duration, setDuration] = useState(fastDuration);
   const [mustFinish, setMustFinish] = useState(false);
@@ -43,7 +43,6 @@ const TestimonialsSection = () => {
 
   useEffect(() => {
     let controls;
-    // Adjust finalPosition based on the number of testimonials and the total width
     const finalPosition = -width * (testimonials.length / 2);
 
     if (mustFinish) {
