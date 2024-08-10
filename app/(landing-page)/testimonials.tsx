@@ -32,18 +32,18 @@ const TestimonialsSection = () => {
     },
   ];
 
-  const fastDuration = 25;
+  const fastDuration = 35;
   const slowDuration = 75;
   const [duration, setDuration] = useState(fastDuration);
   const [mustFinish, setMustFinish] = useState(false);
   const [reRender, setReRender] = useState(false);
 
-  let [ref, { width }] = useMeasure();
+  const [ref, { width }] = useMeasure();
   const xTranslation = useMotionValue(0);
 
   useEffect(() => {
     let controls;
-    let finalPosition = -width / 2 - 8;
+    let finalPosition = -width / 8 - 16;
 
     if (mustFinish) {
       controls = animate(xTranslation, [xTranslation.get(), finalPosition], {
@@ -60,9 +60,10 @@ const TestimonialsSection = () => {
         duration: duration,
         repeat: Infinity,
         repeatType: "loop",
-        repeatDelay: 0,
+        repeatDelay: 5,
       });
     }
+
     return controls?.stop;
   }, [xTranslation, width, duration, reRender]);
 
@@ -88,11 +89,11 @@ const TestimonialsSection = () => {
           {testimonials.concat(testimonials).map((testimonial, index) => (
             <div
               key={index}
-              className="min-w-[300px] p-6 bg-gray-100 dark:bg-gray-900 rounded-lg shadow-lg"
+              className="min-w-[280px] sm:min-w-[300px] p-4 sm:p-6 bg-gray-100 dark:bg-gray-900 rounded-lg shadow-lg"
             >
-<p className="text-lg text-gray-600 dark:text-gray-300">
-  &ldquo;{testimonial.text}&rdquo;
-</p>
+              <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300">
+                &ldquo;{testimonial.text}&rdquo;
+              </p>
               <p className="mt-4 text-sm text-custom-blue font-semibold">
                 - {testimonial.author}
               </p>

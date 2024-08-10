@@ -42,16 +42,17 @@ const CTASection = () => {
           Contact us today to get started on your next construction project.
         </p>
 
-        <div className="flex justify-center items-center gap-8 mb-8 text-black">
-          <div className="flex items-center">
-            <FaPhoneAlt className="h-6 w-6 mr-2 text-custom-blue" />
-            <a href="tel:+234 8137216334"><span>+234 8137216334</span></a>
-          </div>
-          <div className="flex items-center">
-            <FaAddressBook className="h-6 w-6 mr-2 text-custom-blue" />
-            <span className="capitalize">149/155 isuti road egan igando lagos state Nigeria</span>
-          </div>
-        </div>
+        <div className="flex flex-col lg:flex-row justify-center items-center gap-4 mb-8 text-black">
+  <div className="flex items-center justify-center">
+    <FaPhoneAlt className="h-6 w-6 mr-2 text-custom-blue" />
+    <a href="tel:+234 8137216334"><span>+234 8137216334</span></a>
+  </div>
+  <div className="flex items-center">
+    <FaAddressBook className="h-7 w-7 mr-2 text-custom-blue" />
+    <span className="capitalize">149/155 Isuti Road Egan Igando, Lagos State, Nigeria</span>
+  </div>
+</div>
+
 
         {isDesktop ? (
           <Dialog open={open} onOpenChange={setOpen}>
