@@ -5,14 +5,14 @@ import { motion } from "framer-motion";
 const HeaderSection = () => {
   return (
     <header className="container relative py-12 xl:py-24 h-[auto] text-center lg:text-left lg:flex lg:items-center lg:justify-between bg-cover bg-center" 
-      style={{ backgroundImage: "url('/worker.jpeg')" }} // Replace with your background image path
+      style={{ backgroundImage: "url('/worker.jpeg')" }}
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black opacity-50 z-0" />
 
       {/* left */}
       <motion.div
-        className="lg:w-1/2 xl:py-14 lg:py-8 z-10 relative" // Added z-10 and relative to ensure text is above the overlay
+        className="lg:w-1/2 xl:py-14 lg:py-8 z-10 relative"
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -35,9 +35,11 @@ At Osan Industries, we&apos;re committed to building a future where
       >
         <Image
           src="/worker.jpeg"
+          fill
           alt="Worker at Osan Industries"
-          width={800}
-          height={800}
+          sizes="(max-width: 768px) 100vw, 
+          (max-width: 1200px) 50vw, 
+          33vw"
           className="right-0 top-0 xl:h-[448px] xl:w-[700px] lg:h-[344px] lg:w-[500px] rounded-xl object-cover hidden lg:block"
         />
       </motion.div>
