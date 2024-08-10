@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import Button from "@/components/Button";
 
@@ -22,7 +21,7 @@ const JobOpening: React.FC<JobOpeningProps> = ({
   benefits,
 }) => {
   return (
-    <div className="bg-gray-100 p-6 rounded-lg shadow-lg mb-10">
+    <div className="flex flex-col bg-gray-100 p-6 rounded-lg shadow-lg mb-10">
       <h3 className="text-3xl font-bold mb-4">{title}</h3>
       <p className="text-lg font-semibold mb-2">
         {location} | {type}
@@ -50,7 +49,13 @@ const JobOpening: React.FC<JobOpeningProps> = ({
         ))}
       </ul>
 
+      {/* Spacer to push the button to the bottom */}
+      <div className="flex-grow"></div>
+
+<div className="">
+
       <Button text="Apply Now" variant="secondary" />
+</div>
     </div>
   );
 };

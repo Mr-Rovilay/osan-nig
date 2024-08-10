@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 
 const CompanyOverview = () => {
@@ -7,11 +6,10 @@ const CompanyOverview = () => {
       <div className="container mx-auto text-center">
         <h2 className="text-4xl font-bold mb-8">About Osan Industries</h2>
         <p className="text-lg mb-8">
-          <strong>Osan Block Industry</strong> is a leading manufacturer of high-quality blocks and construction
-          materials, serving both residential and commercial markets. Our commitment to durability and innovation has made us a trusted name in the industry.
+          <strong>Osan Block Industry</strong> stands at the forefront of the construction materials industry, renowned for producing premium-quality blocks and building solutions that redefine durability and innovation. Our state-of-the-art manufacturing processes and strict quality controls ensure that every product meets the highest standards of performance and reliability. Whether for residential or commercial projects, our blocks provide unparalleled strength, longevity, and aesthetic appeal, making us the preferred choice for builders and developers seeking to achieve excellence in construction.
         </p>
-        <p className="text-lg">
-          <strong>Osan Water Industry</strong> is dedicated to providing clean and safe water solutions. From purification to distribution, we are at the forefront of water technology, ensuring access to fresh water for communities and businesses alike.
+        <p className="text-lg mb-8">
+          <strong>Osan Water Industry</strong> is committed to revolutionizing the way communities and businesses access clean, safe water. As a leader in advanced water purification and distribution technologies, we offer comprehensive solutions that address the most pressing water challenges of today. Our innovative systems are designed to deliver fresh, potable water efficiently and sustainably, enhancing quality of life and supporting growth across various sectors. From cutting-edge filtration to reliable water distribution networks, we ensure that every drop of water meets rigorous safety standards and exceeds customer expectations.
         </p>
       </div>
     </section>
