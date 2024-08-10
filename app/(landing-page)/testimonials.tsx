@@ -90,9 +90,9 @@ const TestimonialsSection = () => {
               key={index}
               className="min-w-[300px] p-6 bg-gray-100 dark:bg-gray-900 rounded-lg shadow-lg"
             >
-              <p className="text-lg text-gray-600 dark:text-gray-300">
-                "{testimonial.text}"
-              </p>
+<p className="text-lg text-gray-600 dark:text-gray-300">
+  &ldquo;{testimonial.text}&rdquo;
+</p>
               <p className="mt-4 text-sm text-custom-blue font-semibold">
                 - {testimonial.author}
               </p>
