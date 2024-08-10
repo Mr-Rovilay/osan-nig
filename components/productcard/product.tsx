@@ -15,7 +15,7 @@ const ProductsSection = () => {
       imageSrc: "/fancy.webp",
     },
     {
-      title: "Developer",
+      title: "Site Developer",
       description: "Our developer blocks are tailored for large-scale projects, offering unmatched strength and reliability. These blocks are designed to meet the rigorous demands of high-end construction, ensuring your projects stand tall and last long.",
       imageSrc: "/developer.jpg",
     },
