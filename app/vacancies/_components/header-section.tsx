@@ -21,7 +21,7 @@ const HeaderSection = () => {
           Join Our Team at Osan Industries
         </h1>
         <p className="text-base lg:text-lg text-white">
-          At Osan Industries, we're committed to building a future where
+At Osan Industries, we&apos;re committed to building a future where
           innovation meets quality. Explore our current job openings and see how
           you can contribute to our growing success.
         </p>
