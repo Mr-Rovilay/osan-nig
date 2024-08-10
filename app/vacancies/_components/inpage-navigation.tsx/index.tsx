@@ -28,7 +28,7 @@ const InPageNavigation: React.FC<InPageNavigationProps> = ({ routes, children, d
 
   return (
     <div>
-      <div className="relative mb-8 border-b border-gray-300 flex flex-nowrap overflow-y-auto">
+      <div className="relative mb-8 px-4 border-b border-gray-300 flex flex-nowrap overflow-y-auto">
         {routes.map((route, i) => (
           <button
             ref={i === defaultActiveIndex ? activeTabRef : null}

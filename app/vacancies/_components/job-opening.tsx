@@ -21,7 +21,7 @@ const JobOpening: React.FC<JobOpeningProps> = ({
   benefits,
 }) => {
   return (
-    <div className="flex flex-col bg-gray-100 p-6 rounded-lg shadow-lg mb-10">
+    <div className="flex flex-col bg-gray-100 p-4 rounded-lg shadow-lg mb-8">
       <h3 className="text-3xl font-bold mb-4">{title}</h3>
       <p className="text-lg font-semibold mb-2">
         {location} | {type}

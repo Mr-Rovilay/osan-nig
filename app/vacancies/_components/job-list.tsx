@@ -8,7 +8,7 @@ import OsanWater from "@/components/osanwater";
 
 const JobList = () => {
   return (
-    <section className="bg-gray-50 py-10 container">
+    <section className="bg-gray-50 py-10">
 <InPageNavigation routes={["Osan Block", "Osan Water"]}>
   <OsanBlock />
   <OsanWater/>
