@@ -35,11 +35,9 @@ At Osan Industries, we&apos;re committed to building a future where
       >
         <Image
           src="/work.jpg"
-          fill
           alt="Worker at Osan Industries"
-          sizes="(max-width: 768px) 100vw, 
-          (max-width: 1200px) 50vw, 
-          33vw"
+          width={500}
+          height={500}
           className="right-0 top-0 xl:h-[448px] xl:w-[700px] lg:h-[344px] lg:w-[500px] rounded-xl object-cover hidden lg:block"
         />
       </motion.div>
