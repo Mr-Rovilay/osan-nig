@@ -11,23 +11,11 @@ import { IoIosLogIn } from "react-icons/io";
 
 import {
   BarChart,
-  Building2,
-  Code,
-  Code2Icon,
+
   DollarSign,
-  Download,
-  GraduationCap,
-  Headphones,
-  Home,
-  Newspaper,
-  PaintBucket,
+
   Settings,
-  Smile,
-  Sparkles,
-  ScreenShare,
-  Users,
-  UserPlus,
-  ArrowRight,
+
 } from "lucide-react";
 import Button from "@/components/Button";
 
@@ -58,16 +46,6 @@ const DropdownMenu: React.FC<DropDownMenuProps> = ({ onClose }) => {
           
           className="space-y-2">
             <Link
-              href={"/team-alignment"}
-              className="flex"
-              onClick={handleLinkClick}
-            >
-              <div>
-                <UserPlus className="h-6 w-6 mr-4 text-orange-400" />
-              </div>
-              <div>Team alignment</div>
-            </Link>
-            <Link
               href={"/sales"}
               className="flex"
               onClick={handleLinkClick}
@@ -77,28 +55,6 @@ const DropdownMenu: React.FC<DropDownMenuProps> = ({ onClose }) => {
               </div>
 
               <div>Sales</div>
-            </Link>
-            <Link
-              href={"/engineering"}
-              className="flex"
-              onClick={handleLinkClick}
-            >
-              <div>
-                <Code className="h-6 w-6 mr-4 text-indigo-400" />
-              </div>
-
-              <div>Engineering</div>
-            </Link>
-            <Link
-              href={"/design"}
-              className="flex"
-              onClick={handleLinkClick}
-            >
-              <div>
-                <PaintBucket className="h-6 w-6 mr-4 text-blue-400" />
-              </div>
-
-              <div>Design</div>
             </Link>
             <Link
               href={"/marketing"}
@@ -121,17 +77,6 @@ const DropdownMenu: React.FC<DropDownMenuProps> = ({ onClose }) => {
               </div>
 
               <div>Product Management</div>
-            </Link>
-            <Link
-              href={"/support"}
-              className="flex "
-              onClick={handleLinkClick}
-            >
-              <div>
-                <Headphones className="h-6 w-6 mr-4 text-amber-400" />
-              </div>
-
-              <div>Support</div>
             </Link>
           </AccordionContent>
         </AccordionItem>
@@ -140,16 +85,6 @@ const DropdownMenu: React.FC<DropDownMenuProps> = ({ onClose }) => {
           <AccordionTrigger>Osan Water</AccordionTrigger>
           <AccordionContent className="space-y-2">
             <Link
-              href={"/team-alignment"}
-              className="flex"
-              onClick={handleLinkClick}
-            >
-              <div>
-                <UserPlus className="h-6 w-6 mr-4 text-orange-400" />
-              </div>
-              <div>Team alignment</div>
-            </Link>
-            <Link
               href={"/sales"}
               className="flex"
               onClick={handleLinkClick}
@@ -160,28 +95,7 @@ const DropdownMenu: React.FC<DropDownMenuProps> = ({ onClose }) => {
 
               <div>Sales</div>
             </Link>
-            <Link
-              href={"/engineering"}
-              className="flex"
-              onClick={handleLinkClick}
-            >
-              <div>
-                <Code className="h-6 w-6 mr-4 text-indigo-400" />
-              </div>
 
-              <div>Engineering</div>
-            </Link>
-            <Link
-              href={"/design"}
-              className="flex"
-              onClick={handleLinkClick}
-            >
-              <div>
-                <PaintBucket className="h-6 w-6 mr-4 text-blue-400" />
-              </div>
-
-              <div>Design</div>
-            </Link>
             <Link
               href={"/marketing"}
               className="flex "
@@ -203,17 +117,6 @@ const DropdownMenu: React.FC<DropDownMenuProps> = ({ onClose }) => {
               </div>
 
               <div>Product Management</div>
-            </Link>
-            <Link
-              href={"/support"}
-              className="flex "
-              onClick={handleLinkClick}
-            >
-              <div>
-                <Headphones className="h-6 w-6 mr-4 text-amber-400" />
-              </div>
-
-              <div>Support</div>
             </Link>
           </AccordionContent>
         </AccordionItem>
@@ -237,7 +140,7 @@ const DropdownMenu: React.FC<DropDownMenuProps> = ({ onClose }) => {
         </Link>
 
         <Link
-          href={"/contact"}
+          href={"/vacancies"}
           className="
             flex
             flex-1
@@ -256,7 +159,7 @@ const DropdownMenu: React.FC<DropDownMenuProps> = ({ onClose }) => {
         </Link>
 
         <Link
-          href={"/contact"}
+          href={"#contact-us"}
           className="
             flex
             flex-1
