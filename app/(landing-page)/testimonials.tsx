@@ -43,7 +43,8 @@ const TestimonialsSection = () => {
 
   useEffect(() => {
     let controls;
-    let finalPosition = -width / 8 - 16;
+    // Adjust finalPosition based on the number of testimonials and the total width
+    const finalPosition = -width * (testimonials.length / 2);
 
     if (mustFinish) {
       controls = animate(xTranslation, [xTranslation.get(), finalPosition], {
@@ -60,12 +61,11 @@ const TestimonialsSection = () => {
         duration: duration,
         repeat: Infinity,
         repeatType: "loop",
-        repeatDelay: 5,
       });
     }
 
     return controls?.stop;
-  }, [xTranslation, width, duration, reRender]);
+  }, [xTranslation, width, duration, reRender, testimonials.length]);
 
   return (
     <section className="bg-white dark:bg-gray-800 py-20 overflow-hidden">
