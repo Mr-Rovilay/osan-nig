@@ -16,7 +16,7 @@ const ActionButtons = () => {
         <div className="">
             <div className="items-center justify-center flex">
                 <div className="flex gap-2 items-center">
-                    <Link href="/contact-sales" className="hidden lg:flex items-center">
+                    <Link href="#contact-us"className="hidden lg:flex items-center">
                         <div>Contact us</div>
                     </Link>
                     <div className="font-thin lg:flex items-center hidden">|</div>

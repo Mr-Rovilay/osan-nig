@@ -1,7 +1,8 @@
-"use client";
-
-import React from "react";
+"use client"
 import { useMediaQuery } from "react-responsive";
+import { FaPhoneAlt } from "react-icons/fa";
+import { FaAddressBook } from "react-icons/fa6";
+import { Textarea } from "@/components/ui/textarea"
 import {
   Dialog,
   DialogContent,
@@ -24,20 +25,33 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import Button from "@/components/Button";
+import { useState } from "react";
 
 const CTASection = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const isDesktop = useMediaQuery({ query: "(min-width: 768px)" });
 
   return (
-    <section className="bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 py-20">
+    <section
+      id="contact-us"
+      className="bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 py-10"
+    >
       <div className="container mx-auto text-center text-white">
-        <h2 className="text-4xl font-bold mb-5">
-          Ready to Build with the Best?
-        </h2>
-        <p className="text-lg mb-10">
+        <h2 className="text-4xl font-bold mb-5">Ready to Build with the Best?</h2>
+        <p className="text-lg mb-3 text-black">
           Contact us today to get started on your next construction project.
         </p>
+
+        <div className="flex justify-center items-center gap-8 mb-8 text-black">
+          <div className="flex items-center">
+            <FaPhoneAlt className="h-6 w-6 mr-2 text-custom-blue" />
+            <a href="tel:+234 8137216334"><span>+234 8137216334</span></a>
+          </div>
+          <div className="flex items-center">
+            <FaAddressBook className="h-6 w-6 mr-2 text-custom-blue" />
+            <span className="capitalize">149/155 isuti road egan igando lagos state Nigeria</span>
+          </div>
+        </div>
 
         {isDesktop ? (
           <Dialog open={open} onOpenChange={setOpen}>
@@ -69,7 +83,11 @@ const CTASection = () => {
               <ProfileForm className="px-4" />
               <DrawerFooter className="pt-2">
                 <DrawerClose asChild>
-                  <Button text="Cancel" variant="secondary"  className="flex items-center justify-center"/>
+                  <Button
+                    text="Cancel"
+                    variant="secondary"
+                    className="flex items-center justify-center"
+                  />
                 </DrawerClose>
               </DrawerFooter>
             </DrawerContent>
@@ -102,7 +120,7 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
 
       <div className="grid gap-2">
         <Label htmlFor="message">Message</Label>
-        <textarea id="message" rows={4} defaultValue="Your message" />
+        <Textarea placeholder="Type your message here." id="message" rows={4}/>
       </div>
 
       <Button

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Gelasio } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/navbar/navbar";
+import Footer from "@/components/footer/footer";
 
 const gelasio = Gelasio({ subsets: ["latin"] });
 
@@ -16,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-   <body className={gelasio.className}>{children}</body>
+   <body className={gelasio.className}><Navbar /><main>{children}</main> <Footer /></body>
     </html>
   );
 }

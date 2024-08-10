@@ -142,7 +142,7 @@ export function Menu() {
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/vacancy" legacyBehavior passHref>
+          <Link href="/vacancies" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
          Vacancies  
             </NavigationMenuLink>
