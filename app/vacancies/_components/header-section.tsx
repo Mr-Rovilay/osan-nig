@@ -34,7 +34,7 @@ At Osan Industries, we&apos;re committed to building a future where
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <Image
-          src="/worker.jpeg"
+          src="/work.jpg"
           fill
           alt="Worker at Osan Industries"
           sizes="(max-width: 768px) 100vw, 
