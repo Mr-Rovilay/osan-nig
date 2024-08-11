@@ -154,8 +154,11 @@ const OsanWater = () => {
   ];
 
   return (
-    <div className="container mx-auto">
-      <h2 className="text-4xl font-bold mb-8 text-center">Current Job Openings at Osan Water Industry</h2>
+    <div className="lg:container mx-auto">
+   <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 text-center px-1">
+  Current Job Openings at Osan Water Industry
+</h2>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {jobOpenings.map((job, index) => (
           <JobOpening key={index} {...job} />
