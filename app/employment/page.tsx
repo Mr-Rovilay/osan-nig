@@ -155,7 +155,7 @@ const EmploymentForm = () => {
             <>
               <div className="mb-4">
                 <label className="block text-sm font-bold mb-2" htmlFor="driversLicense">
-                  Driver's License Number
+                  Driver&apos;s License Number
                 </label>
                 <input
                   type="text"
@@ -181,9 +181,9 @@ const EmploymentForm = () => {
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-xs font-bold mb-2" htmlFor="guarantorAddress">
-                  Guarantor's Address
-                </label>
+<label className="block text-xs font-bold mb-2" htmlFor="guarantorAddress">
+  Guarantor&apos;s Address
+</label>
                 <input
                   type="text"
                   id="guarantorAddress"
@@ -196,7 +196,7 @@ const EmploymentForm = () => {
               </div>
               <div className="mb-6">
                 <label className="block text-xs font-bold mb-2" htmlFor="licensePicture">
-                  Upload Driver's License Picture
+                  Upload Driver&apos;s License Picture
                 </label>
                 <input
                   type="file"
