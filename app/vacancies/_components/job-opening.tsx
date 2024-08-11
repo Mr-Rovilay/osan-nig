@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "@/components/Button";
+import Link from "next/link";
 
 interface JobOpeningProps {
   title: string;
@@ -53,8 +54,11 @@ const JobOpening: React.FC<JobOpeningProps> = ({
       <div className="flex-grow"></div>
 
 <div className="">
-
+  <Link href={"/employment"}>
+  
       <Button text="Apply Now" variant="secondary" />
+  </Link>
+
 </div>
     </div>
   );
