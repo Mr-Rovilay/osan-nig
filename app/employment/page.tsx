@@ -138,7 +138,7 @@ const EmploymentForm = () => {
             />
           </div>
           <div className="mb-6">
-                <label className="block text-xs font-bold mb-2" htmlFor="licensePicture">
+                <label className="block text-xs font-bold mb-2" htmlFor="cvPicture">
                   Upload Cv
                 </label>
                 <input
@@ -146,7 +146,7 @@ const EmploymentForm = () => {
                   id="CvPicture"
                   accept="image/*"
                   onChange={(e) => setCV(e.target.files ? e.target.files[0] : null)}
-                  className="w-full bg-white py-3 px-3 rounded-lg text-gray-700 text-base leading-tight"
+                  className={`w-full p-3 rounded-lg text-gray-700 ${styles.inputField}`}
                   required
                 />
               </div>
@@ -176,7 +176,7 @@ const EmploymentForm = () => {
                   name="experience"
                   value={experience}
                   onChange={(e) => setExperience(e.target.value)}
-                  className="w-full bg-white py-3 px-3 rounded-lg text-gray-700 text-base leading-tight"
+                  className={`w-full p-3 rounded-lg text-gray-700 ${styles.inputField}`}
                   required
                 />
               </div>
@@ -190,7 +190,7 @@ const EmploymentForm = () => {
                   name="guarantorAddress"
                   value={guarantorAddress}
                   onChange={(e) => setGuarantorAddress(e.target.value)}
-                  className="w-full bg-white py-3 px-3 rounded-lg text-gray-700 text-base leading-tight"
+                  className={`w-full p-3 rounded-lg text-gray-700 ${styles.inputField}`}
                   required
                 />
               </div>
