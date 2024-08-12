@@ -143,7 +143,7 @@ const PricingPage = () => {
   variants={productVariants}
   className="text-lg text-center text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto"
 >
-  Explore our diverse range of products designed to meet your construction and hydration needs. Whether you're building a sturdy foundation with our high-quality blocks or ensuring your team stays refreshed with our premium water products, we provide reliable solutions that combine durability, affordability, and convenience. Discover the perfect products to bring your projects to life.
+  Explore our diverse range of products designed to meet your construction and hydration needs. Whether you&apos;re building a sturdy foundation with our high-quality blocks or ensuring your team stays refreshed with our premium water products, we provide reliable solutions that combine durability, affordability, and convenience. Discover the perfect products to bring your projects to life.
 </motion.p>
 
         <motion.div variants={sectionVariants} className="mb-16">
