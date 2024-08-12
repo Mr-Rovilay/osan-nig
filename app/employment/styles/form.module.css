@@ -7,8 +7,8 @@
   }
   
   .inputField:focus {
-    border-color: #BEADFF;
-    box-shadow: 0 0 8px rgba(190, 173, 255, 0.6), 0 0 15px rgba(190, 173, 255, 0.3);
+    border-color: #3FA2F6;
+    box-shadow: 0 0 8px rgba(63, 162, 246, 0.6), 0 0 15px rgba(63, 162, 246, 0.3);
     outline: none;
   }
   

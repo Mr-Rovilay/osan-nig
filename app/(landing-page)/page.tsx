@@ -3,7 +3,8 @@ import HeroSection from './hero-section'
 import WhyChooseUs from './why-choose-us'
 import ProductsSection from '@/components/productcard/product'
 import TestimonialsSection from './testimonials'
-import CTASection from './cta-section'
+import CTASection from './cta-section/cta-section'
+
 
 
 const Home = () => {

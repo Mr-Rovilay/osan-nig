@@ -1,5 +1,6 @@
 "use client";
 import JobOpening from "@/app/vacancies/_components/job-opening";
+import AnimationWrapper from "@/common/AnimationWrapper";
 import React from "react";
 
 const OsanBlock = () => {
@@ -92,6 +93,8 @@ const OsanBlock = () => {
 
   return (
     <div className="lg:container mx-auto">
+        <AnimationWrapper keyValue="OsanBlock"  transition={{ duration: 2}}>
+
   <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 text-center px-1">
   Current Job Openings at Osan Block Industry
 </h2>
@@ -101,6 +104,8 @@ const OsanBlock = () => {
           <JobOpening key={index} {...job} />
         ))}
       </div>
+
+        </AnimationWrapper>
     </div>
   );
 };

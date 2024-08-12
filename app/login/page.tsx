@@ -109,7 +109,7 @@ const Login = () => {
                 {passwordError && <span className={`${styles.errorText} absolute right-3 top-1/2 transform -translate-y-1/2 text-red-500 text-xs`}>{passwordError}</span>}
               </div>
             </div>
-            {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+            {error && <p className="text-red-500 text-sx italic mb-4">{error}</p>}
             <div className="flex items-center justify-between pt-4">
               <Button text="Login" variant="secondary" type="submit" loading={loading} className='w-full items-center justify-center'/>
             </div>

@@ -1,6 +1,38 @@
+"use client";
+import { useState } from "react";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const isValidEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (email.match(isValidEmail)) {
+      console.log("Email submitted:", email);
+
+      // Show success message
+      setSuccessMessage("Thank you for subscribing!");
+      setErrorMessage("");
+
+      // Clear the input field
+      setEmail("");
+
+      // Hide the success message after 3 seconds
+      setTimeout(() => {
+        setSuccessMessage("");
+      }, 3000);
+    } else {
+      // Show an error message
+      setErrorMessage("Please enter a valid email address.");
+      setSuccessMessage("");
+    }
+  };
+
   return (
     <footer className="bg-gray-800 text-gray-300 py-12">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -59,18 +91,29 @@ const Footer = () => {
           <p className="text-gray-400 mb-4">
             Subscribe to our newsletter for the latest updates and offers.
           </p>
-          <form className="flex">
-            <input
-              type="email"
-              className="w-full px-4 py-2 rounded-l-lg focus:outline-none text-black"
-              placeholder="Your email address"
-            />
-            <button
-              type="submit"
-              className="bg-custom-blue text-white px-4 py-2 rounded-r-lg hover:bg-blue-600 transition-colors duration-300"
-            >
-              Subscribe
-            </button>
+          <form className="flex flex-col" onSubmit={handleSubmit}>
+            <div className="flex">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-4 py-2 rounded-l-lg focus:outline-none text-black"
+                placeholder="Your email address"
+             
+              />
+              <button
+                type="submit"
+                className="bg-custom-blue text-white px-4 py-2 rounded-r-lg hover:bg-blue-600 transition-colors duration-300"
+              >
+                Subscribe
+              </button>
+            </div>
+            {successMessage && (
+              <p className="mt-4 text-green-500 text-sm">{successMessage}</p>
+            )}
+            {errorMessage && (
+              <p className="mt-4 text-red-500 text-sm">{errorMessage}</p>
+            )}
           </form>
         </div>
       </div>

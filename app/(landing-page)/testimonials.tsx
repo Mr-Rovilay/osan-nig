@@ -32,8 +32,8 @@ const TestimonialsSection = () => {
     },
   ];
 
-  const fastDuration = 45;
-  const slowDuration = 75;
+  const fastDuration = 55;
+  const slowDuration = 95;
   const [duration, setDuration] = useState(fastDuration);
   const [mustFinish, setMustFinish] = useState(false);
   const [reRender, setReRender] = useState(false);

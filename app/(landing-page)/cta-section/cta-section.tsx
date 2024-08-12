@@ -26,6 +26,7 @@ import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import Button from "@/components/Button";
 import { useState } from "react";
+import ProfileForm from "./_components";
 
 const CTASection = () => {
   const [open, setOpen] = useState(false);
@@ -101,35 +102,6 @@ const CTASection = () => {
 
 export default CTASection;
 
-function ProfileForm({ className }: React.ComponentProps<"form">) {
-  return (
-    <form className={cn("grid items-start gap-4", className)}>
-      <div className="grid gap-2">
-        <Label htmlFor="fullName">Full Name</Label>
-        <Input id="fullName" defaultValue="Your full name" />
-      </div>
-
-      <div className="grid gap-2">
-        <Label htmlFor="email">Email</Label>
-        <Input type="email" id="email" defaultValue="youremail@example.com" />
-      </div>
-
-      <div className="grid gap-2">
-        <Label htmlFor="number">Contact Number</Label>
-        <Input type="number" id="number" defaultValue="Mobile number" />
-      </div>
-
-      <div className="grid gap-2">
-        <Label htmlFor="message">Message</Label>
-        <Textarea placeholder="Type your message here." id="message" rows={4}/>
-      </div>
-
-      <Button
-        type="submit"
-        text="Submit"
-        variant="secondary"
-        className="flex items-center justify-center"
-      />
-    </form>
-  );
-}
+<>
+<ProfileForm/>
+</>

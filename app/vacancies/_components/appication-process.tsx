@@ -3,7 +3,7 @@ import React from "react";
 
 const ApplicationProcess = () => {
   return (
-    <section className="bg-white py-20">
+    <section className="bg-white py-15">
       <div className="container mx-auto text-center">
         <h2 className="text-4xl font-bold mb-8">How to Apply</h2>
         <ol className="list-decimal list-inside text-left max-w-2xl mx-auto text-lg space-y-4">
