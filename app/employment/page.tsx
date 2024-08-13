@@ -5,6 +5,11 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import styles from './styles/form.module.css';
 import Button from '@/components/Button';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
+
+const JobOpening = dynamic(() => import('@/app/vacancies/_components/job-opening'), {
+  ssr: false,
+});
 
 const EmploymentForm: React.FC = () => {
   const searchParams = useSearchParams();
