@@ -26,6 +26,26 @@ const Signup = () => {
   const router = useRouter();
 
 const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setFullNameError("");
+  setEmailError("");
+  setPasswordError("");
+  if (!fullName) {
+    setFullNameError("Can't be empty");
+    return;
+  }
+
+  if (!email) {
+    setEmailError("Can't be empty");
+    return;
+  }
+
+  if (!password) {
+    setPasswordError("Cant be empty");
+    return;
+  }
+
+  setLoading(true);
   // ...
   try {
     await setPersistence(auth, browserLocalPersistence);
@@ -79,7 +99,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                   onChange={(e) => setFullName(e.target.value)}
                   className={`w-full bg-white py-3 pl-12 pr-3 rounded-lg text-gray-700 text-base leading-tight ${styles.inputField} ${fullNameError ? styles.errorField : ''}`}
                 />
-                {fullNameError && <span className={`${styles.errorText} absolute right-3 top-1/2 transform -translate-y-1/2 text-red-500 text-xs`}>{fullNameError}</span>}
+                {fullNameError && <span className={`${styles.errorText} absolute right-3 top-1/2 transform -translate-y-1/2 text-red-500 italic text-xs`}>{fullNameError}</span>}
               </div>
             </div>
 
@@ -98,10 +118,10 @@ const handleSubmit = async (e: React.FormEvent) => {
                   onChange={(e) => setEmail(e.target.value)}
                   className={`w-full bg-white py-3 pl-12 pr-3 rounded-lg text-gray-700 text-base leading-tight ${styles.inputField} ${emailError ? styles.errorField : ''}`}
                 />
-                {emailError && <span className={`${styles.errorText} absolute right-3 top-1/2 transform -translate-y-1/2 text-red-500 text-xs`}>{emailError}</span>}
+                {emailError && <span className={`${styles.errorText} absolute right-3 top-1/2 transform -translate-y-1/2 text-red-500 italic text-xs`}>{emailError}</span>}
               </div>
             </div>
-            <div className="mb-6 relative">
+            <div className="mb-4 relative">
               <label className={`block text-xs font-bold mb-2 ${passwordError ? styles.errorLabel : 'text-gray-400'}`} htmlFor="password">
                 Password
               </label>
@@ -116,10 +136,10 @@ const handleSubmit = async (e: React.FormEvent) => {
                   onChange={(e) => setPassword(e.target.value)}
                   className={`w-full py-3 pl-12 pr-3 rounded-lg text-gray-700 text-base leading-tight ${styles.inputField} ${passwordError ? styles.errorField : ''}`}
                 />
-                {passwordError && <span className={`${styles.errorText} absolute right-3 top-1/2 transform -translate-y-1/2 text-red-500 text-xs`}>{passwordError}</span>}
+                {passwordError && <span className={`${styles.errorText} absolute right-3 top-1/2 transform -translate-y-1/2 text-red-500 italic text-xs`}>{passwordError}</span>}
               </div>
             </div>
-            {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+            {error && <p className="text-red-500 text-x italic">{error}</p>}
             <div className="flex items-center justify-between pt-4">
               <Button text="Sign up" variant="secondary" type="submit" loading={loading} className='w-full items-center justify-center'/>
             </div>

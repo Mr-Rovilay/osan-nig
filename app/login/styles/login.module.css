@@ -16,6 +16,7 @@
   
 .errorLabel {
     color: #ff3939; 
+    font-style: italic;
 }
   
 .errorText {
