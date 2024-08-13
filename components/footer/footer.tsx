@@ -1,31 +1,49 @@
 "use client";
+import { db } from "@/lib/firebaseConfig";
 import { useState } from "react";
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaSpinner } from "react-icons/fa";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false); // Loading state
 
   const isValidEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (email.match(isValidEmail)) {
-      console.log("Email submitted:", email);
+      setLoading(true); // Start loading
+      try {
+        console.log("Email submitted:", email);
 
-      // Show success message
-      setSuccessMessage("Thank you for subscribing!");
-      setErrorMessage("");
+        // Add email to Firestore
+        await addDoc(collection(db, "subscriptions"), {
+          email: email,
+          time: serverTimestamp(),
+        });
 
-      // Clear the input field
-      setEmail("");
+        // Show success message
+        setSuccessMessage("Thank you for subscribing!");
+        setErrorMessage("");
 
-      // Hide the success message after 3 seconds
-      setTimeout(() => {
+        // Clear the input field
+        setEmail("");
+
+        // Hide the success message after 3 seconds
+        setTimeout(() => {
+          setSuccessMessage("");
+        }, 3000);
+      } catch (error) {
+        console.error("Error adding email to Firestore:", error);
+        setErrorMessage("An error occurred. Please try again.");
         setSuccessMessage("");
-      }, 3000);
+      } finally {
+        setLoading(false); // Stop loading
+      }
     } else {
       // Show an error message
       setErrorMessage("Please enter a valid email address.");
@@ -99,13 +117,20 @@ const Footer = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-4 py-2 rounded-l-lg focus:outline-none text-black"
                 placeholder="Your email address"
-             
+                disabled={loading} // Disable input during loading
               />
               <button
                 type="submit"
-                className="bg-custom-blue text-white px-4 py-2 rounded-r-lg hover:bg-blue-600 transition-colors duration-300"
+                className={`bg-custom-blue text-white px-4 py-2 rounded-r-lg transition-colors duration-300 ${
+                  loading ? "opacity-70 cursor-not-allowed" : "hover:bg-blue-600"
+                }`}
+                disabled={loading} // Disable button during loading
               >
-                Subscribe
+                {loading ? (
+                  <FaSpinner className="animate-spin h-5 w-5 text-white inline-block" />
+                ) : (
+                  "Subscribe"
+                )}
               </button>
             </div>
             {successMessage && (

@@ -44,5 +44,6 @@ const signInWithGoogle = async () => {
     console.error("Error during Google sign-in:", error);
   }
 };
+const db = getFirestore(app);
 
-export { app, auth, firestore, storage, signInWithGoogle };
+export { app, auth, firestore, storage, signInWithGoogle, db };
