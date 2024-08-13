@@ -1,9 +1,6 @@
-"use client"
-import React, { useState } from "react";
+import React from "react";
 import Button from "@/components/Button";
-
-import EmploymentForm from "@/app/employment/page";
-import Modal from "@/components/model/model";
+import Link from "next/link";
 
 interface JobOpeningProps {
   title: string;
@@ -24,16 +21,6 @@ const JobOpening: React.FC<JobOpeningProps> = ({
   qualifications,
   benefits,
 }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
   return (
     <div className="w-full sm:w-auto flex flex-col bg-gray-100 p-4 rounded-lg shadow-lg mb-4">
       <h3 className="text-3xl font-bold mb-4">{title}</h3>
@@ -66,10 +53,14 @@ const JobOpening: React.FC<JobOpeningProps> = ({
       <div className="flex-grow"></div>
 
       <div className="">
-        <Button text="Apply Now" variant="secondary" onClick={openModal} />
-        <Modal isOpen={isModalOpen} onClose={closeModal}>
-<EmploymentForm jobTitle={title} />
-        </Modal>
+        <Link
+          href={{
+            pathname: "/employment",
+            query: { jobTitle: title },
+          }}
+        >
+          <Button text="Apply Now" variant="secondary" />
+        </Link>
       </div>
     </div>
   );
