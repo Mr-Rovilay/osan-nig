@@ -7,7 +7,8 @@ import Button from '@/components/Button';
 import Image from 'next/image';
 
 const EmploymentForm: React.FC = () => {
-  const [jobTitle, setJobTitle] = useState('');
+  const searchParams = useSearchParams();
+  const [jobTitle, setJobTitle] = useState<string | null>(null);
   const [fullName, setFullName] = useState('');
   const [cv, setCV] = useState<File | null>(null);
   const [email, setEmail] = useState('');
@@ -22,8 +23,6 @@ const EmploymentForm: React.FC = () => {
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
   const [previewURL, setPreviewURL] = useState<string | null>(null);
-  const router = useRouter();
-  const searchParams = useSearchParams();
 
   useEffect(() => {
     const jobTitleFromQuery = searchParams.get('jobTitle');
@@ -45,7 +44,7 @@ const EmploymentForm: React.FC = () => {
     setError('');
     setSuccess('');
 
-    if (!fullName || !email || !phone || !address ) {
+    if (!fullName || !email || !phone || !address) {
       setError('Please fill out all required fields.');
       return;
     }
@@ -87,7 +86,6 @@ const EmploymentForm: React.FC = () => {
       setExperience('');
       setGuarantorAddress('');
       setAddress('');
-      setJobTitle('');
       setLicensePicture(null);
       setPreviewURL(null);
     }, 2000);
@@ -99,7 +97,6 @@ const EmploymentForm: React.FC = () => {
         <h1 className="text-2xl font-bold mb-6">Employment Details</h1>
         <form onSubmit={handleSubmit} className="flex flex-wrap -mx-3">
           <div className="w-full md:w-1/2 px-3 mb-4">
-
             <label className="block text-sm font-bold mb-2" htmlFor="jobTitle">
               Job Title
             </label>
@@ -107,7 +104,7 @@ const EmploymentForm: React.FC = () => {
               type="text"
               id="jobTitle"
               name="jobTitle"
-              value={jobTitle}
+              value={jobTitle || ''}
               onChange={(e) => setJobTitle(e.target.value)}
               className={`w-full p-3 rounded-lg text-gray-700 ${styles.inputField}`}
               readOnly
@@ -283,5 +280,4 @@ const EmploymentForm: React.FC = () => {
 };
 
 export default EmploymentForm;
-
 
