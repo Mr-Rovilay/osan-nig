@@ -12,6 +12,7 @@ import AnimationWrapper from "@/common/AnimationWrapper";
 import styles from './styles/signup.module.css';
 import Image from 'next/image';
 import { FaSpinner } from 'react-icons/fa';
+import withAuthRedirect from '@/components/HOC/redirect';
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -176,4 +177,4 @@ const handleSubmit = async (e: React.FormEvent) => {
   );
 };
 
-export default Signup;
+export default withAuthRedirect(Signup);

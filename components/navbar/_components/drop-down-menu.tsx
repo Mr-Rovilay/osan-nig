@@ -1,6 +1,5 @@
-
 import Link from "next/link";
-
+import { motion } from "framer-motion";
 import {
   Accordion,
   AccordionContent,
@@ -8,52 +7,42 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { IoIosLogIn } from "react-icons/io";
-
-import {
-  BarChart,
-
-  DollarSign,
-
-  Settings,
-
-} from "lucide-react";
+import { BarChart, DollarSign, Settings } from "lucide-react";
 import Button from "@/components/Button";
+import { useAuth } from "@/context/AuthContext";
 
 interface DropDownMenuProps {
   onClose: () => void;
 }
 
 const DropdownMenu: React.FC<DropDownMenuProps> = ({ onClose }) => {
+  const { user, signOutUser } = useAuth();
+
   const handleLinkClick = () => {
     onClose();
   };
 
+  const dropdownVariants = {
+    open: { opacity: 1, y: 0, display: "block" },
+    closed: { opacity: 0, y: -20, transitionEnd: { display: "none" } },
+  };
+
   return (
-    <div className="mt-3 w-screen h-screen bg-white  px-4 items-center justify-center absolute  right-0 xl:hidden lg:hidden">
-      <Accordion
-       defaultValue="item-1"
-        className="
-            
-            "
-        type="single"
-        collapsible
-      >
-        <AccordionItem className="mt-6 border-b" value="item-1">
+    <motion.div
+      initial="closed"
+      animate="open"
+      exit="closed"
+      variants={dropdownVariants}
+      className="w-screen h-screen bg-white px-4 items-center justify-center absolute right-0 xl:hidden lg:hidden"
+    >
+      <Accordion defaultValue="item-1" type="single" collapsible>
+        <AccordionItem className="border-b" value="item-1">
           <AccordionTrigger className="">Products</AccordionTrigger>
-          <AccordionContent
-           defaultValue="item-1"
-          
-          
-          className="space-y-2">
-            <Link
-              href={"/sales"}
-              className="flex"
-              onClick={handleLinkClick}
-            >
+          <AccordionContent className="space-y-2">
+            <Link href={"/sales"} className="flex" onClick={handleLinkClick}>
               <div>
                 <DollarSign className="h-6 w-6 mr-4 text-green-400" />
               </div>
-
               <div>Sales</div>
             </Link>
             <Link
@@ -64,7 +53,6 @@ const DropdownMenu: React.FC<DropDownMenuProps> = ({ onClose }) => {
               <div>
                 <BarChart className="h-6 w-6 mr-4 text-rose-400" />
               </div>
-
               <div>Marketing</div>
             </Link>
             <Link
@@ -75,24 +63,18 @@ const DropdownMenu: React.FC<DropDownMenuProps> = ({ onClose }) => {
               <div>
                 <Settings className="h-6 w-6 mr-4 text-grey-400" />
               </div>
-
               <div>Product Management</div>
             </Link>
           </AccordionContent>
         </AccordionItem>
 
-        <AccordionItem className=" border-b" value="item-3">
+        <AccordionItem className="border-b" value="item-3">
           <AccordionTrigger>Osan Water</AccordionTrigger>
           <AccordionContent className="space-y-2">
-            <Link
-              href={"/sales"}
-              className="flex"
-              onClick={handleLinkClick}
-            >
+            <Link href={"/sales"} className="flex" onClick={handleLinkClick}>
               <div>
                 <DollarSign className="h-6 w-6 mr-4 text-green-400" />
               </div>
-
               <div>Sales</div>
             </Link>
 
@@ -104,7 +86,6 @@ const DropdownMenu: React.FC<DropDownMenuProps> = ({ onClose }) => {
               <div>
                 <BarChart className="h-6 w-6 mr-4 text-rose-400" />
               </div>
-
               <div>Marketing</div>
             </Link>
             <Link
@@ -115,7 +96,6 @@ const DropdownMenu: React.FC<DropDownMenuProps> = ({ onClose }) => {
               <div>
                 <Settings className="h-6 w-6 mr-4 text-grey-400" />
               </div>
-
               <div>Product Management</div>
             </Link>
           </AccordionContent>
@@ -123,75 +103,55 @@ const DropdownMenu: React.FC<DropDownMenuProps> = ({ onClose }) => {
 
         <Link
           href={"/pricing"}
-          className="
-            flex
-            flex-1
-            items-center 
-            justify-between
-     
-          
-            py-4
-            
-            border-b
-            "
+          className="flex flex-1 items-center justify-between py-4 border-b"
+          onClick={handleLinkClick}
         >
           Pricing
-       
         </Link>
 
         <Link
           href={"/vacancies"}
-          className="
-            flex
-            flex-1
-            items-center 
-            justify-between
-            border-b
-          
-         
-            py-4
-          
-      
-            "
+          className="flex flex-1 items-center justify-between py-4 border-b"
+          onClick={handleLinkClick}
         >
-    Vacancies
-        
+          Vacancies
         </Link>
 
         <Link
           href={"#contact-us"}
-          className="
-            flex
-            flex-1
-            items-center 
-            justify-between
-            border-b
-          
-         
-            py-4
-          
-      
-            "
+          className="flex flex-1 items-center justify-between py-4 border-b"
+          onClick={handleLinkClick}
         >
-    Contact us
-        
+          Contact us
         </Link>
       </Accordion>
 
-      <div className="py-7">
-        <div className="flex flex-col px-4">
-          <Link href={"/login"}>
+      {user ? (
+        <div className="py-7">
+          <div className="flex flex-col">
             <Button
-              icon={<IoIosLogIn />}
-            text="Login"
-            variant="secondary"
-            className="w-full"
-        
+              onClick={signOutUser}
+              text="Logout"
+              className="bg-red-500 text-white px-2 py-1 rounded w-full"
             />
-          </Link>
+          </div>
         </div>
-      </div>
-    </div>
+      ) : (
+        <div className="py-7">
+          <div className="flex flex-col px-4">
+            <Link href={"/login"}>
+              <Button
+                icon={<IoIosLogIn />}
+                text="Login"
+                variant="secondary"
+                className="w-full"
+                onClick={handleLinkClick}
+              />
+            </Link>
+          </div>
+        </div>
+      )}
+    </motion.div>
   );
 };
 

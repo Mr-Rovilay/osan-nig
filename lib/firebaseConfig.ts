@@ -6,13 +6,13 @@ import { getStorage } from "firebase/storage";
 // Firebase configuration
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: "link-shearing-app.firebaseapp.com",
-  projectId: "link-shearing-app",
-  storageBucket: "link-shearing-app.appspot.com",
-  messagingSenderId: "856553980086",
-  appId: "1:856553980086:web:a63a3748c17c355b97a617",
-  measurementId: "G-RJGJ52CJWT"
+  authDomain: "osan-ind.firebaseapp.com",
+  projectId: "osan-ind",
+  storageBucket: "osan-ind.appspot.com",
+  messagingSenderId: "802828653881",
+  appId: "1:802828653881:web:079b45d58ff4eec884c4e8"
 };
+
 
 // Initialize Firebase
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();

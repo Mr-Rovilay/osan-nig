@@ -12,6 +12,7 @@ import AnimationWrapper from "@/common/AnimationWrapper";
 import styles from './styles/login.module.css';
 import Image from 'next/image';
 import { FaSpinner } from 'react-icons/fa';
+import withAuthRedirect from '@/components/HOC/redirect';
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -146,4 +147,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default withAuthRedirect(Login);

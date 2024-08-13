@@ -42,6 +42,20 @@
     margin-bottom: 1rem;
     color: #222; /* Slightly darker color for headings */
   }
+
+
+.dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown-menu-hidden {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+
   
   .container {
     width: 100%;

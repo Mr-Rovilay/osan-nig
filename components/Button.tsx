@@ -27,7 +27,7 @@ const Button: React.FC<ButtonProps> = ({
 
   const variantStyles = {
     primary:
-      "bg-gray-500 text-black hover:bg-gray-100 focus:ring-gray-300 flex gap-2 items-center",
+      "bg-gray-500 text-black focus:ring-gray-300 flex gap-2 items-center text-sm hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition duration-200",
     secondary:
       "bg-custom-blue text-white flex gap-2 items-center text-sm hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition duration-200",
   };
