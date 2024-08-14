@@ -138,7 +138,7 @@ const DropdownMenu: React.FC<DropDownMenuProps> = ({ onClose }) => {
         </div>
       ) : (
         <div className="py-7">
-          <div className="flex flex-col px-4">
+          <div className="flex flex-col">
             <Link href={"/login"}>
               <Button
                 icon={<IoIosLogIn />}
