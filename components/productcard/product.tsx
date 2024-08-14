@@ -8,11 +8,10 @@ const ProductsSection = () => {
   const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1, // Lower threshold to trigger earlier
+    threshold: 0.1,
   });
 
   useEffect(() => {
-    console.log("InView:", inView); // Debugging inView status
     if (inView) {
       controls.start("visible");
     }
