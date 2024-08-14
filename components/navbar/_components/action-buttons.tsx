@@ -26,15 +26,15 @@ const ActionButtons = () => {
         {user ? (
           <div className="flex items-center gap-2">
             <Image
-              width={38}
-              height={38}
-              src={user.photoURL || '/default-avatar.png'}
+              width={48}
+              height={48}
+              src={user.photoURL || '/avatar.jpg'}
               alt={user.displayName || 'User Avatar'}
               className="rounded-full cursor-pointer"
-              objectFit="contain"
+            
             />
-            <div className="flex flex-col items-center justify-center">
-<p className="flex ">Welcome</p>
+            <div className="flex flex-col items-center justify-center ">
+<p className="">Welcome</p>
             <span className="mr-2">{user.displayName}</span>
             </div>
             <Button

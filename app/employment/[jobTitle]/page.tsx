@@ -9,6 +9,7 @@ import Image from 'next/image';
 import { collection, addDoc } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { db, storage } from '@/lib/firebaseConfig';
+import { useAuth } from '@/context/AuthContext';
 
 const EmploymentForm: React.FC = () => {
   const [jobTitle, setJobTitle] = useState('');
@@ -28,6 +29,7 @@ const EmploymentForm: React.FC = () => {
   const [previewURL, setPreviewURL] = useState<string | null>(null);
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { user } = useAuth();
 
 
   const isValidEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -51,6 +53,11 @@ const EmploymentForm: React.FC = () => {
     e.preventDefault();
     setError('');
     setSuccess('');
+
+     if (!user) {
+      setError('Please log in to submit your application.');   
+      return;
+    }
 
     if (!fullName || !email || !phone || !address) {
       setError('Please fill out all required fields.');
@@ -195,7 +202,7 @@ const EmploymentForm: React.FC = () => {
               type="email"
               id="email"
               name="email"
-              value={email}
+              value={user?.email || ''} // Fixed here
               onChange={(e) => setEmail(e.target.value)}
               className={`w-full p-3 rounded-lg text-gray-700 ${styles.inputField}`}
             />
@@ -305,7 +312,7 @@ const EmploymentForm: React.FC = () => {
                       className="w-32 h-auto rounded-lg shadow-md"
                       width={128}
                       height={128}
-                      objectFit='contain'
+                      layout="responsive" 
                     />
                   </div>
                 )}
@@ -329,8 +336,8 @@ const EmploymentForm: React.FC = () => {
 
           <div className="flex flex-col px-3">
             
-          {error && <p className="text-red-500 text-xs italic mb-4">{error}</p>}
-          {success && <p className="text-green-500 text-xs italic mb-4">{success}</p>}
+          {error && <p className="text-red-500 text-xs italic mb-3">{error}</p>}
+          {success && <p className="text-green-500 text-xs italic mb-3">{success}</p>}
 
           <div className="flex items-center justify-between">
           <Button text="Submit Application" variant="secondary" type="submit" loading={loading} />
