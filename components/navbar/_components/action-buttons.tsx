@@ -63,7 +63,7 @@ const ActionButtons = () => {
             aria-expanded="true"
             role="button"
           >
-            <X className="h-5 w-5 items-center justify-center" />
+            <X className="h-5 w-5 items-center justify-center mr-1" />
           </div>
         ) : (
           <div
