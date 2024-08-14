@@ -22,7 +22,7 @@ const auth = getAuth(app);
 // Set persistence to local storage
 setPersistence(auth, browserLocalPersistence)
   .then(() => {
-    console.log("Firebase authentication persistence set to local storage.");
+
   })
   .catch((error) => {
     console.error("Error setting persistence:", error);
