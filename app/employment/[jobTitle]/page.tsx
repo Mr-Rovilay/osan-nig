@@ -6,6 +6,10 @@ import styles from './styles/form.module.css';
 import Button from '@/components/Button';
 import Image from 'next/image';
 
+import { collection, addDoc } from 'firebase/firestore';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { db, storage } from '@/lib/firebaseConfig';
+
 const EmploymentForm: React.FC = () => {
   const [jobTitle, setJobTitle] = useState('');
   const [fullName, setFullName] = useState('');
@@ -25,6 +29,9 @@ const EmploymentForm: React.FC = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
+
+  const isValidEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
   useEffect(() => {
     const jobTitleFromQuery = searchParams.get('jobTitle');
     if (jobTitleFromQuery) {
@@ -40,13 +47,23 @@ const EmploymentForm: React.FC = () => {
     }
   }, [licensePicture]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     setSuccess('');
 
-    if (!fullName || !email || !phone || !address ) {
+    if (!fullName || !email || !phone || !address) {
       setError('Please fill out all required fields.');
+      return;
+    }
+
+    if (!email.match(isValidEmail)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    if (!cv) {
+      setError('Please provide your CV.');  
       return;
     }
 
@@ -76,13 +93,45 @@ const EmploymentForm: React.FC = () => {
 
     setLoading(true);
 
-    setTimeout(() => {
+    try {
+      let cvURL = '';
+      let licensePictureURL = '';
+
+      if (cv) {
+        const cvRef = ref(storage, `cvs/${cv.name}`);
+        await uploadBytes(cvRef, cv);
+        cvURL = await getDownloadURL(cvRef);
+      }
+
+      if (licensePicture) {
+        const licenseRef = ref(storage, `licenses/${licensePicture.name}`);
+        await uploadBytes(licenseRef, licensePicture);
+        licensePictureURL = await getDownloadURL(licenseRef);
+      }
+
+      await addDoc(collection(db, 'employmentApplications'), {
+        jobTitle,
+        fullName,
+        email,
+        phone,
+        gPhone,
+        driversLicense,
+        experience,
+        guarantorAddress,
+        address,
+        cvURL,
+        licensePictureURL,
+        submittedAt: new Date(),
+      });
+
       setLoading(false);
+
       setSuccess('Your application has been submitted successfully!');
       setFullName('');
       setEmail('');
       setPhone('');
       setGPhone('');
+      setCV(null);
       setDriversLicense('');
       setExperience('');
       setGuarantorAddress('');
@@ -90,8 +139,18 @@ const EmploymentForm: React.FC = () => {
       setJobTitle('');
       setLicensePicture(null);
       setPreviewURL(null);
-    }, 2000);
+
+       // Hide success message after 3 seconds
+       setTimeout(() => {
+        setSuccess("");
+        router.push('/vacancies');
+      }, 3000);
+
+    } catch (error) {
+      setError('An error occurred while submitting your application. Please try again.');
+    } 
   };
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -177,6 +236,7 @@ const EmploymentForm: React.FC = () => {
               <input
                 type="file"
                 id="cvPicture"
+                name='cv'
                 accept="application/pdf"
                 onChange={(e) => setCV(e.target.files ? e.target.files[0] : null)}
                 className={`w-full p-3 rounded-lg text-gray-700 ${styles.inputField}`}
@@ -245,6 +305,7 @@ const EmploymentForm: React.FC = () => {
                       className="w-32 h-auto rounded-lg shadow-md"
                       width={128}
                       height={128}
+                      objectFit='contain'
                     />
                   </div>
                 )}

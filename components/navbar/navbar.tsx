@@ -17,7 +17,7 @@ useMotionValueEvent(scrollY, "change", (latest) => {
     setHidden(false);
   }
 });
-  const navBarClasses = `px-4 flex items-center justify-between space-x-4 sm:space-x-6 md:space-x-8 lg:space-x-10 bg-white h-14 sticky top-0 z-50 border-b border-gray-200`;
+  const navBarClasses = `pl-2 flex items-center justify-between space-x-4 sm:space-x-6 md:space-x-8 lg:space-x-10 bg-white h-14 sticky top-0 z-50 border-b border-gray-200`;
 
   return (
     <motion.nav

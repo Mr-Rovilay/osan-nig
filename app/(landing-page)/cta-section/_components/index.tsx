@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import Button from "@/components/Button";
 import { db } from "@/lib/firebaseConfig";
+import { useRouter } from 'next/navigation';
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 function ProfileForm({ className }: React.ComponentProps<"form">) {
@@ -16,6 +17,7 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const isValidEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
@@ -69,6 +71,7 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
       // Hide success message after 3 seconds
       setTimeout(() => {
         setSuccessMessage("");
+        router.push('/');
       }, 3000);
     } catch (error) {
       console.error("Error submitting form:", error);

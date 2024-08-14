@@ -24,7 +24,7 @@ const DropdownMenu: React.FC<DropDownMenuProps> = ({ onClose }) => {
 
   const dropdownVariants = {
     open: { opacity: 1, y: 0, display: "block" },
-    closed: { opacity: 0, y: -20, transitionEnd: { display: "none" } },
+    closed: { opacity: 3, y: -20, transitionEnd: { display: "none" } },
   };
 
   return (
