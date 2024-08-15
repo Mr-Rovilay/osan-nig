@@ -35,6 +35,7 @@ const EmploymentForm: React.FC = () => {
   const isValidEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
   useEffect(() => {
+    //@ts-ignore  
     const jobTitleFromQuery = searchParams.get('jobTitle');
     if (jobTitleFromQuery) {
       setJobTitle(jobTitleFromQuery);
