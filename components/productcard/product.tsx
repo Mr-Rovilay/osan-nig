@@ -3,8 +3,11 @@ import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import ProductCard from "./_components/product-card";
+import { useRouter } from "next/navigation";
+
 
 const ProductsSection = () => {
+  const router = useRouter();
   const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -85,8 +88,9 @@ const ProductsSection = () => {
   ];
 
   const handleLearnMore = (productTitle: string) => {
-    alert(`Learn more about ${productTitle}`);
+    router.push(`/products/${encodeURIComponent(productTitle)}`);
   };
+  
 
   return (
     <section className="bg-gray-50 dark:bg-gray-900 py-20">
